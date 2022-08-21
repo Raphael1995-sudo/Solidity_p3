@@ -3,15 +3,13 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("Storage", function () {
-   it("test updating and retrieving updated value", async function () {
+   it("test adding entry and retrieving the added string", async function () {
     const Storage = await ethers.getContractFactory("Storage");
     const storage = await Storage.deploy();
     await storage.deployed();
     const storage2 = await ethers.getContractAt("Storage", storage.address);
-
     const setValue = await storage2.push("test");
     await setValue.wait();
-    console.log(storage2.get());
-    //expect((await storage2.retrieve()).to.equal(storage.address));
+   // expect((await storage2.get_sender_entries()).to.equal("test"));
   });
 });

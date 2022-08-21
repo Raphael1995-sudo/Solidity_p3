@@ -9,28 +9,49 @@ pragma solidity >=0.7.0 <0.9.0;
  */
 contract Storage {
 
+    //Declaration of a struct
+    //you can return a struct address easily with a struct
+    //you can't return a struct address easily with a mapping
     struct Address_book
     {
         address addr;
         string data;
     }
 
+    //Getting an array of address associated with the data
+    //allows to iterate through the address book and do CRUD : Create Read Update Delete
     Address_book[] public address_book;
  
-    function push(string memory _text) external {
+    function push(string memory _text) public {
         Address_book memory entry;
         entry.addr = msg.sender;
         entry.data = _text;
         address_book.push(entry);
     }
 
-    function get_all() external view returns(Address_book[] memory)
+    //Suppress all the entries of the sender address
+    function suppress_entries() public returns(Address_book[] memory)
+    {
+        
+        for(uint i = 0; i < address_book.length; i++)
+        {
+            if(address_book[i].addr == msg.sender)
+                delete address_book[i];
+        }
+        return(address_book);
+    }
+
+    //Get All the entries of the Book, address and data
+    function get_all() public view returns(Address_book[] memory)
     {
         return(address_book);
     }
 
-    function get() public view returns(string[] memory)
+    //Get all the data entries of the sender 
+    function get_sender_entries() public view returns(string[] memory)
     {
+        //Not possible to create dynamic memory array
+        //so I'm initializing a new string object with the length of the address book
         string[] memory address_data =  new string[](address_book.length);
         uint j = 0;
     

@@ -31,19 +31,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "get",
-				"outputs": [
-					{
-						"internalType": "string[]",
-						"name": "",
-						"type": "string[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "get_all",
 				"outputs": [
 					{
@@ -68,6 +55,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "get_sender_entries",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -77,6 +77,31 @@
 				],
 				"name": "push",
 				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "suppress_entries",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "addr",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "data",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Storage.Address_book[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -112,11 +137,11 @@
 	},
 	"sources": {
 		"contracts/1_Storage.sol": {
-			"keccak256": "0xd0d334b24f9e56b2e83eaccba1fd23d6ae705c49aad920aa189a33df990bcfb8",
+			"keccak256": "0xa3480dfbf3dca33879a27cb7a6d4d4030ab46a674d5f894c38005c7ef20c9f0f",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://cf6969b4276fa114a704a18e3749a1b03516cf246d9132280a6b7d15d7bb7327",
-				"dweb:/ipfs/QmYLpapjE6BkqtSHTbnSS6KC4o1p7JHboUrS3oSPxZijmV"
+				"bzz-raw://af7fc129983c88db9bce32d01cfb8be1cc3ae4391d80d2cabf84b2717dd8f25d",
+				"dweb:/ipfs/QmXrPEzSPvfkNAFLymSqYPGGLZYU3YuWkTR7BnxdZ8Rfzv"
 			]
 		}
 	},
